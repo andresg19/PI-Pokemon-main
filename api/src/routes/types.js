@@ -11,9 +11,9 @@ router.get('/', async (req, res, next) => {
             where: {name: typesName[i]}
         })
     }
-    const allTypes = await Type.findAll({
-        attributes: ['name'],
-    })
+    const allTypes = await Type.findAll(
+       
+    )
     res.status(200).send(allTypes)
 })
 
