@@ -1,0 +1,86 @@
+.container {
+    background-image: url('https://images3.alphacoders.com/182/thumb-1920-182719.jpg');
+    background-size:cover; 
+    height: 150vh;  
+}
+.danger {
+    border: 1px red solid;
+}
+
+
+.btn {
+	box-shadow: 2px 2px 30px 2px #bbdaf746;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color: #43a0fc;
+	border-radius:3px;
+	border:2px solid #84bbf3;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Times New Roman;
+	font-size:15px;
+	font-style:italic;
+	padding:7px 35px;
+	text-decoration:none;
+	text-shadow:3px 2px 0px #528ecc;
+    
+     
+}
+.btn:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}
+.title{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    word-spacing: -0.2px;
+    color: #000000b4;
+    font-weight: 700;
+    text-decoration: underline solid rgba(0, 69, 219, 0.089);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    text-shadow: 3px -3px 11px rgba(255, 255, 255, 0.596);   
+}
+input[type=text] {
+    width: 250px;
+    height: 10px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgba(204, 204, 204, 0.884);
+    background-color: #ffffff79;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+ select {
+    background-color: #43a0fc;
+    color: #ffffff;
+    padding:7px 35px;
+    width: 150px;
+    height: 35px;
+    border:2px solid #84bbf3;
+    border-radius:3px;
+    font-family:Times New Roman;
+	font-size:15px;
+	font-style:italic;
+    box-shadow: 2px 2px 30px 2px #bbdaf746;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    
+  }
+
+  
+  

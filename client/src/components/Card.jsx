@@ -1,16 +1,20 @@
 import React from "react";
-export default function Game({image, name, types}) {
+import styles from './Card.module.css'
+
+export default function Detail({image, name, types, id}) {
+
+    
     return(
-        <div>
-            <div>
+            <div className={styles.container}>
             <img src={image} alt="img not found" width="250px" height="200px"/>
-            <div>
-            <h3>{name}</h3>
+            <div className={styles.name}>
+            <h3>
+                {name.toUpperCase()}
+           </h3> 
             </div>
-            <div>
+            <div className={styles.types}>
             <h3>{types}</h3>
             </div>
             </div>
-        </div>
     )
 }

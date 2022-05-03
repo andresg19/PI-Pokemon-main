@@ -1,0 +1,49 @@
+.container{
+    background-image: 
+               url('https://wallpaperaccess.com/full/3062895.jpg');
+    
+    background-size: cover;    height: 100vh;      
+}
+
+.font{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    word-spacing: -0.2px;
+    color: #0000008e;
+    font-weight: 700;
+    text-decoration: underline solid rgba(0, 69, 219, 0.089);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    /* margin-top: 200px; */
+    text-shadow: 3px -3px 11px rgba(121, 159, 218, 0.81);
+    padding-top: 200px ;
+    
+}
+
+.btn{
+    
+        box-shadow: 3px 3px 19px 3px #ffffff;
+        background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+        background-color:#74ad5a;
+        border-radius:5px;
+        border:2px solid #3b6e22;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Times New Roman;
+        font-size:22px;
+        font-weight:bold;
+        padding:9px 19px;
+        text-decoration:none;
+    }
+    
+.btn:hover{
+    background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+	background-color:#68a54b;
+}
+.btn:active{
+    position:relative;
+	top:1px;
+}
