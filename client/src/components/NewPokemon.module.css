@@ -6,22 +6,51 @@
 .danger {
     border: 1px red solid;
 }
-
-
-.btn {
-	box-shadow: 2px 2px 30px 2px #bbdaf746;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color: #43a0fc;
+.btnh {
+	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
+	background-color:#11396173;
 	border-radius:3px;
-	border:2px solid #84bbf3;
+	border:2px solid #11396150;
 	cursor:pointer;
-	color:#ffffff;
+	color:#ffff;
 	font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
 	padding:7px 35px;
 	text-decoration:none;
-	text-shadow:3px 2px 0px #528ecc;
+	text-shadow:3px 2px 0px #ffffff21;
+    position: relative;
+   
+}
+.btnh:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+.btnh:active {
+	position:relative;
+	top:1px;
+}
+
+
+.btn {
+	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
+	background-color:#113961a4;
+	border-radius:3px;
+	border:2px solid #11396150;
+	cursor:pointer;
+	color:#ffff;
+	font-family:Times New Roman;
+	font-size:15px;
+	font-style:italic;
+	padding:7px 35px;
+	text-decoration:none;
+	text-shadow:3px 2px 0px #ffffff21;
+    position: relative;
+    position: relative;
+    top: 20px;
+    left: 10px;
     
      
 }
@@ -60,15 +89,27 @@ input[type=text] {
     border-radius: 4px;
     box-sizing: border-box;
   }
+  input[type=number] {
+    width: 250px;
+    height: 10px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgba(204, 204, 204, 0.884);
+    background-color: #ffffff79;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
- select {
-    background-color: #43a0fc;
+ .types {
+    background-color:#113961a4;
+	border-radius:3px;
+	border:2px solid #11396150;
+	cursor:pointer;
     color: #ffffff;
     padding:7px 35px;
-    width: 150px;
-    height: 35px;
-    border:2px solid #84bbf3;
-    border-radius:3px;
+    width: 300px;
+    height: 100px;
     font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
@@ -77,10 +118,15 @@ input[type=text] {
     appearance: button;
     outline: none;
     cursor: pointer;
+    justify-content:space-around;
+    display:inline-block;
+    text-align: center;
     position: relative;
+    left: 10px;
     top: 1px;
     
   }
 
+  
   
   

@@ -12,13 +12,14 @@ export default function SearchBar() {
     e.preventDefault();
     setName(e.target.value.toLowerCase());
   }
-  async function handleButton(e) {
+  function handleButton(e) {
     e.preventDefault();
-    dispatch(await searchName(name));
-    setName("")
+    dispatch(searchName(name));
+    setName('')
   }
   return (
-    <div className={styles.positionSearch}>
+    
+    <div  className={styles.positionSearch}>
       <input className={styles.searchInput}
         type="text"
         placeholder="Search pokemon..."

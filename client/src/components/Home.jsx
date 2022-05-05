@@ -6,11 +6,15 @@ import {
   getPokemons,
   orderUpFall,
   orderUpFallAttack,
+  filteredPokemonsTypes,
+  filterCreated,
+  getTypes,
 } from "../actions";
 import styles from './Home.module.css'
 import Card from "./Card";
 import Nav from "./Nav";
 import Paginated from "./Paginated";
+import SearchBar from "./SearchBar";
 
 
 export default function Home() {
@@ -25,13 +29,24 @@ export default function Home() {
   const firstPokemonPage = lastPokemonPage - pokemonsPpage;
   const actualPokemons = allPokemons.slice(firstPokemonPage, lastPokemonPage);
 
+  const types = useSelector((state) => state.types);
+
   const paginated = (pageNumber) => {
     setActualPage(pageNumber);
   };
 
   useEffect(() => {
+    dispatch(getTypes());
+}, [dispatch])
+
+  useEffect(() => {
     dispatch(getPokemons());
   }, [dispatch]);
+
+  function handleReload(e) {
+    e.preventDefault();
+    dispatch(getPokemons());
+  }
 
   function handleSort(e) {
     e.preventDefault();
@@ -44,6 +59,18 @@ export default function Home() {
     dispatch(orderUpFallAttack(e.target.value));
     setActualPage(1);
     setOrder(`Organized ${e.target.value}`);
+  } 
+  function handleFilterTypes(e) {
+    e.preventDefault();
+    dispatch(filteredPokemonsTypes(e.target.value));
+    setActualPage(1);
+    setOrder(`Organized ${e.target.value}`);
+  }
+  function handleFilterCreated(e) {
+    e.preventDefault();
+    dispatch(filterCreated(e.target.value));
+    setActualPage(1);
+    setOrder(`Organized ${e.target.value}`);
   }
 
   return (
@@ -52,6 +79,9 @@ export default function Home() {
       <Nav />
       <div className={styles.positionBtn}>
         <Link to="/newpokemon"> <button className={styles.btn}> Create pokemon </button></Link>
+        </div>
+        <div className={styles.positionBtn}>
+          <button className={styles.btn} onClick={(e) => handleReload(e)}>Reload pokemon</button>
         </div>
           <div className={styles.box}>
             <select  onChange={(e) => handleSort(e)}>
@@ -62,10 +92,27 @@ export default function Home() {
               <option value="attAs">Upward-Attack</option>
               <option value="attDes">Falling-Attack</option>
             </select>
+            <select onChange={(e) => handleFilterCreated(e)}>
+              <option value="all">All pokemons</option>
+              <option value="eApi">Existing pokemon</option>
+              <option value="cDb">Pokemon created</option>
+            </select>
+            <select onChange={(e) => handleFilterTypes(e)}>
+              <option value="all">All Types</option>
+                {types?.map((t) => (
+                <option value={t.name}>{t.name}</option>
+                 ))}
+            </select>
           </div>
+
+
+          <SearchBar />
+      
           <div className={styles.title}>
             <h1>Pokemon Page Henry</h1>
           </div>
+
+          
 
           <Paginated
             pokemonsPpage={pokemonsPpage}
@@ -96,12 +143,6 @@ export default function Home() {
               })
             )}
           </div>
-          <Paginated
-            pokemonsPpage={pokemonsPpage}
-            allPokemons={allPokemons.length}
-            paginated={paginated}
-          />
-        
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ export default function NewPokemon() {
         if (!e.target.value) {
             return;
         }
-        if (input.type.length === 2) {
+        if (input.type.length >= 2) {
             alert("You can only choose max 2 types per Pokemon");
             return;
           }
@@ -51,7 +51,7 @@ export default function NewPokemon() {
         e.preventDefault();
         const errorsValidations = validations();
         setError(errorsValidations)
-        if(Object.keys(errorsValidations).length === 0) {
+        if (!Object.keys(errorsValidations)) { 
         dispatch(newPokemon(input))
         alert('Pokemon created!')
         setInput({
@@ -65,8 +65,8 @@ export default function NewPokemon() {
         image: '',
         type: []
         })
-        history.push('/home')
-      }
+        history.push('/home') 
+    } 
     };
 
     useEffect(() => {
@@ -75,80 +75,85 @@ export default function NewPokemon() {
 
 
     function validations() {
-        const errors = {};
+        const error = {};
 
         let validateImg = /^(ftp|http|https):\/\/[^ "]+$/.test(input.image)
+        let validateName = /^[A-Z][a-z]{3,20}$/.test(input.name)
 
         if(!input.name) {
-            errors.name = 'Name is required';
-        } else if (!isNaN(input.name)) {
-            errors.name = 'The name cannot be a number';
+            error.name = 'Name is required';
+        } else if (!(validateName)) {
+            error.name = 'The name must start with a capital letter and end with a lowercase letter. Accept between 3 and 20 characters';
         }
         
-
         if(!input.hp) {
-            errors.hp = 'HP is required';
-        } else if(input.hp <= 0) {
-            errors.hp = 'HP must be greater than 0';
-        } else if(isNaN(input.hp) === true) {
-            errors.hp = 'HP cannot contain letters';
+            error.hp = 'HP is required';
+        } else if(input.hp <= 0 || input.hp > 999) {
+            error.hp = 'HP must be greater than 0 and less than 1000';
         } 
+        // if(!input.hp){
+        //     error.hp = 'Numero de hp es requerido'   
+        // }else if(!/^[0-9]*$/.test(input.hp)){
+        //     error.hp = 'Debe ser un numero mayor a 1 '
+        // }else if(input.hp <= 999){
+        //     error.hp='Numero inválido, debe ser menor o igual a 100'
+        // }
+
+
 
         if(!input.attack) {
-            errors.attack = 'Attack is required';
-        } else if(input.attack <= 0) {
-            errors.attack = 'Attack must be greater than 0';
-        } else if(isNaN(input.attack) === true) {
-            errors.attack = 'Attack cannot contain letters';
-        }
+            error.attack = 'Attack is required';
+        } else if(input.attack <= 0 || input.attack > 999) {
+            error.attack = 'Attack must be greater than 0 and less than 1000';
+        } 
+        // if(!input.attack){
+        //     error.attack = 'Numero de attack es requerido'   
+        // }else if(!/^[0-9]*$/.test(input.attack)){
+        //     error.attack = 'Debe ser un numero mayor a 1 '
+        // }else if(input.attack <= 999){
+        //     error.attack='Numero inválido, debe ser menor o igual a 100'
+        // }
 
+ 
         if(!input.defense) {
-            errors.defense = 'Defense is required';
-        } else if(input.defense <= 0) {
-            errors.defense = 'Defense must be greater than 0';
-        } else if(isNaN(input.defense) === true) {
-            errors.defense = 'Defense cannot contain letters'
-        }
+            error.defense = 'Defense is required';
+        } else if(input.defense <= 0 || input.defense > 999) {
+            error.defense = 'Defense must be greater than 0 and less than 1000';
+        } 
 
         if(!input.speed) {
-            errors.speed = 'Speed is required';
-        } else if(input.speed <= 0) {
-            errors.speed = 'Speed must be greater than 0';
-        } else if(isNaN(input.speed) === true) {
-            errors.speed = 'Speed cannot contain letters'
-        }
+            error.speed = 'Speed is required';
+        } else if(input.speed  <= 0 || input.speed > 999) {
+            error.speed = 'Speed must be greater than 0 and less than 1000';
+        } 
 
         if(!input.height) {
-            errors.height = 'Height is required';
-        } else if(input.height <= 0) {
-            errors.height = 'Height must be greater than 0';
-        } else if(isNaN(input.height) === true) {
-            errors.height = 'Height cannot contain letters'
-        }
+            error.height = 'Height is required';
+        } else if(input.height <= 0 || input.height > 999) {
+            error.height = 'Height must be greater than 0 and less than 1000';
+        } 
 
         if(!input.weight) {
-            errors.weight = 'Weight is required';
-        } else if(input.weight <= 0) {
-            errors.weight = 'Weight must be greater than 0';
-        } else if(isNaN(input.weight) === true) {
-            errors.weight = 'Weight cannot contain letters'
-        }
+            error.weight = 'Weight is required';
+        } else if(input.weight <= 0 || input.weight > 999) {
+            error.weight = 'Weight must be greater than 0 and less than 1000';
+        } 
 
-        if(!input.image) {
-            errors.image = 'Place the reference link of your Pokemon image';
-        } else if(!validateImg) {
-            errors.image = 'The reference link to your pokemon image is invalid';
+        if(!validateImg) {
+            error.image = 'The reference link to your pokemon image is invalid';
+        } else if(validateImg) {
+            error.image = 'Reference link to your pokemon image is valid';
         }
 
         if(!input.type) {
-            errors.type = 'Insert at least one type'
+            error.type = 'Insert at least one type'
         }
-        return errors;
+        return error;
     };
 
     return (
         <div className={styles.container}>
-            <Link to= '/home'> <button className={styles.btn}>Go back home</button> </Link>
+            <Link to= '/home'> <button className={styles.btnh}>Go back home</button> </Link>
             <div className={styles.title}>
             <h1>Create your pokemon!</h1>
             </div>
@@ -166,63 +171,63 @@ export default function NewPokemon() {
                 <div>
                 <label>Hp:</label>
                     <input className= {error.hp && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.hp}
                     name = 'hp'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                     {!error.hp? null: <p>{error.hp}</p>}
+                </div>
                 <div>
                 <label>Attack:</label>
                     <input className= {error.attack && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.attack}
                     name = 'attack'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                    {!error.attack? null: <p>{error.attack}</p>}
+                </div>
                 <div>
                 <label>Defense:</label>
                     <input className= {error.defense && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.defense}
                     name = 'defense'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                   {!error.defense? null:  <p>{error.defense}</p>}
+                </div>
                 <div>
                 <label>Speed:</label>
                     <input className= {error.speed && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.speed}
                     name = 'speed'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                     {!error.speed? null: <p>{error.speed}</p>}
+                </div>
                 <div>
                 <label>Height:</label>
                     <input className= {error.height && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.height}
                     name = 'height'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                   {!error.height? null: <p>{error.height}</p>}
+                </div>
                 <div>
                 <label>Weight:</label>
                     <input className= {error.weight && styles.danger}
-                    type="text"
+                    type="number"
                     value={input.weight}
                     name = 'weight'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                    {!error.weight? null: <p>{error.weight}</p>}
+                </div>
                 <div>
                 <label>Image:</label>
                     <input className= {error.image && styles.danger}
@@ -231,15 +236,20 @@ export default function NewPokemon() {
                     name = 'image'
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
                    {!error.image? null: <p>{error.image}</p>}
-                <select  onChange={(e) => handleTypes(e)}>
+                </div>
+                <div className={styles.types}>
                     {types.map((t) =>(
-                        <option value={t.name}>{t.name}</option>
+                      <label>  <input className={error.type && styles.checks}
+                        type= "checkbox"
+                        value={t.name}
+                        name= "type"
+                        onChange={(e) => handleTypes(e)}
+                        />
+                        {t.name}</label>
                     ))}
-                </select>
-                    {!error.type? null: <p>{error.type}</p>}
-                {/* <ul><li>{types.map(el=>el + ' ,')}</li></ul> */}
+                {!error.type? null: <p>{error.type}</p> }
+                </div>
                 <button className={styles.btn} type="submit">Create pokemon</button>
             </form>
         </div>

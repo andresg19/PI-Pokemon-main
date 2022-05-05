@@ -15,6 +15,9 @@ export default function Detail({image, name, types, id}) {
             <div className={styles.types}>
             <h3>{types}</h3>
             </div>
+            <div className={styles.click}>
+            <h3>Click me to see my details</h3>
+            </div>
             </div>
     )
 }

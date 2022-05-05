@@ -130,22 +130,23 @@
 
 
 
-.btn {
-	box-shadow: 2px 2px 30px 2px #bbdaf746;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color: #43a0fc;
+.btn{
+	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
+	background-color:#11396173;
 	border-radius:3px;
-	border:2px solid #84bbf3;
+	border:2px solid #11396150;
 	cursor:pointer;
-	color:#ffffff;
+	color:#ffff;
 	font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
 	padding:7px 35px;
 	text-decoration:none;
-	text-shadow:3px 2px 0px #528ecc;     
+	text-shadow:3px 2px 0px #ffffff21;
+    position: relative;
+   
 }
-
 .btn:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;

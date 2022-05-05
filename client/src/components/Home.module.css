@@ -26,10 +26,13 @@
     font-style: normal;
     font-variant: normal;
     text-transform: capitalize;
-    display: flex;
+    display: inline-block;
     justify-content: center;
     padding-left: 180px;
     text-shadow: 3px -3px 11px rgba(255, 255, 255, 0.596);
+    position: relative;
+    right: 100px;
+    
     
     
 }
@@ -37,16 +40,17 @@
     float: right;
     position: relative;
     padding-top: 1px;
-    padding-right: 100px;
+    padding-right: 60px;
     bottom: 10px;
+    right: 220px;
 
 }
 .box select {
-    background-color: #43a0fc;
-    color: #ffffff;
+  background-color:#11396173;
+  color:#ffff;
     padding:7px 35px;
     width: 200px;
-    border:2px solid #84bbf3;
+    border:2px solid #11396150;
     border-radius:3px;
     font-family:Times New Roman;
 	font-size:15px;
@@ -77,21 +81,21 @@
 
 .btn {
 	box-shadow: 2px 2px 30px 2px #bbdaf7;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
+	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
+	background-color:#11396173;
 	border-radius:3px;
-	border:2px solid #84bbf3;
+	border:2px solid #11396150;
 	display:flex;
 	cursor:pointer;
-	color:#ffffff;
+	color:#ffff;
 	font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
 	padding:7px 35px;
 	text-decoration:none;
-	text-shadow:3px 2px 0px #528ecc;
+	text-shadow:3px 2px 0px #ffffff21;
   position: relative;
-  bottom: 15px;
+  bottom: 75px;
     
 }
 .btn:hover {
