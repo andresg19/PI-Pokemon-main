@@ -11,19 +11,19 @@ export function getPokemons() {
 }
 
 export function getDetail(id) {
-    return async function(dispatch) {
-        try{
-            let jsonId = await axios.get(`http://localhost:3001/api/pokemons/${id}`);
-            return dispatch({
-                type: 'DETAIL',
-                payload: jsonId.data
-            })
-        }
-        catch(error){
-            console.log(error)
-        }
-    }
-}
+    return async function (dispatch) {
+      try {
+        let jsonId = await axios.get(`http://localhost:3001/api/pokemons/${id}`);
+        return dispatch({
+          type: "DETAIL",
+          payload: jsonId.data,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  }
+  
 
 export function clearPage(){
     return {
@@ -82,7 +82,6 @@ export function searchName(name){
     return async function(dispatch) {
         try{
            let json = await axios.get(`http://localhost:3001/api/pokemons/name?name=${name}`);
-           //console.log(json.data)
            return dispatch({
                type: 'SEARCH_NAME',
                payload: json.data
@@ -92,3 +91,4 @@ export function searchName(name){
      }
 } 
 }
+

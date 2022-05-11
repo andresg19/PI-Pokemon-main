@@ -12,7 +12,7 @@ import {
 } from "../actions";
 import styles from './Home.module.css'
 import Card from "./Card";
-import Nav from "./Nav";
+
 import Paginated from "./Paginated";
 import SearchBar from "./SearchBar";
 
@@ -46,6 +46,7 @@ export default function Home() {
   function handleReload(e) {
     e.preventDefault();
     dispatch(getPokemons());
+
   }
 
   function handleSort(e) {
@@ -75,12 +76,12 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <SearchBar />
      <div>
-      <Nav />
-      <div className={styles.positionBtn}>
-        <Link to="/newpokemon"> <button className={styles.btn}> Create pokemon </button></Link>
+      <div className={styles.positionNew}>
+      <Link to= '/newpokemon'><button className={styles.btn}>Create pokemon</button></Link>
         </div>
-        <div className={styles.positionBtn}>
+        <div className={styles.positionReload}>
           <button className={styles.btn} onClick={(e) => handleReload(e)}>Reload pokemon</button>
         </div>
           <div className={styles.box}>
@@ -100,13 +101,13 @@ export default function Home() {
             <select onChange={(e) => handleFilterTypes(e)}>
               <option value="all">All Types</option>
                 {types?.map((t) => (
-                <option value={t.name}>{t.name}</option>
+                <option key={t.id} value={t.name}>{t.name}</option>
                  ))}
             </select>
           </div>
 
 
-          <SearchBar />
+          
       
           <div className={styles.title}>
             <h1>Pokemon Page Henry</h1>

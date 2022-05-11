@@ -1,7 +1,7 @@
 .container {
     background-image: url('https://images3.alphacoders.com/182/thumb-1920-182719.jpg');
     background-size:cover; 
-    height: 150vh;  
+    height: 170vh;  
 }
 .danger {
     border: 1px red solid;
@@ -9,7 +9,7 @@
 .btnh {
 	box-shadow: 2px 2px 30px 2px #bbdaf7;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
-	background-color:#11396173;
+	background-color:#113961a8;
 	border-radius:3px;
 	border:2px solid #11396150;
 	cursor:pointer;
@@ -21,22 +21,20 @@
 	text-decoration:none;
 	text-shadow:3px 2px 0px #ffffff21;
     position: relative;
+    left: 10px;
    
 }
 .btnh:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;
 }
-.btnh:active {
-	position:relative;
-	top:1px;
-}
+
 
 
 .btn {
-	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	box-shadow: 2px 2px 30px 2px #bbdaf75e;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
-	background-color:#113961a4;
+	background-color:#113961e3;
 	border-radius:3px;
 	border:2px solid #11396150;
 	cursor:pointer;
@@ -49,22 +47,32 @@
 	text-shadow:3px 2px 0px #ffffff21;
     position: relative;
     position: relative;
-    top: 20px;
+    top: 10px;
     left: 10px;
-    
      
 }
 .btn:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;
 }
-.btn:active {
-	position:relative;
-	top:1px;
-}
-.title{
+
+label{
     font-family: "Times New Roman", Times, serif;
-    font-size: 20px;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    word-spacing: -0.2px;
+    color: #000000b4;
+    font-weight: 700;
+    text-decoration: underline solid rgba(0, 69, 219, 0.089);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    text-shadow: 3px -3px 11px rgba(255, 255, 255, 0.596);   
+}
+
+h1{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
     letter-spacing: 0.8px;
     word-spacing: -0.2px;
     color: #000000b4;
@@ -77,6 +85,20 @@
     justify-content: center;
     padding-left: 20px;
     text-shadow: 3px -3px 11px rgba(255, 255, 255, 0.596);   
+}
+
+p{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    word-spacing: -0.2px;
+    color: #ff0000d7;
+    font-weight: 700;
+    text-decoration: underline solid rgba(65, 4, 4, 0.5);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    text-shadow: 3px -3px 11px rgba(0, 0, 0, 0.397);   
 }
 input[type=text] {
     width: 250px;
@@ -101,31 +123,35 @@ input[type=text] {
     box-sizing: border-box;
   }
 
- .types {
+ .checkbox {
     background-color:#113961a4;
 	border-radius:3px;
 	border:2px solid #11396150;
-	cursor:pointer;
+    width: 600px;
+    height: 150px;
+    box-shadow: 2px 2px 30px 2px #bbdaf746;
+    outline: none;
+    display: inline-block;
+    justify-content:space-between;
+    position: relative;
+    top: 1px;
+    left: 20px;
+    
+  }
+
+  .types {
     color: #ffffff;
     padding:7px 35px;
-    width: 300px;
-    height: 100px;
     font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
-    box-shadow: 2px 2px 30px 2px #bbdaf746;
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-    cursor: pointer;
-    justify-content:space-around;
-    display:inline-block;
-    text-align: center;
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    justify-content: space-between;
     position: relative;
-    left: 10px;
-    top: 1px;
-    
   }
+  
 
   
   

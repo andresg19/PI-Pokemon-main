@@ -5,9 +5,93 @@ const { Pokemon, Type } = require('../db');
 const router = Router();
 
 
+//RUTA PARA TRAER TODOS LOS POKEMONS, TANTO POR API Y COMO ASI TAMBIEN SI HUBIERA UNO CREADO EN LA DB
+router.get("/", async (req, res, next) => {
+  const dataApi = [];
+  
+  try {
+    const api = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
+    api.data.results.forEach((data) => dataApi.push(data.url));
+    const api20 = api.data.next;
+    const subApi = await axios.get(api20);
+    subApi.data.results.forEach((data) => dataApi.push(data.url));
+    
+    let dataPokemons = [];
+    dataApi.forEach((data) => {
+      let promesa = axios.get(data);
+      dataPokemons.push(promesa);
+    });
+    let promiseDataPokemons = await Promise.all(dataPokemons);
+    
+    const pokemons = promiseDataPokemons.map((pokemon) => {
+      return {
+        id: pokemon.data.id,
+        name: pokemon.data.name,
+        weight: pokemon.data.weight,
+        height: pokemon.data.height,
+        image: pokemon.data.sprites.other.dream_world.front_default,
+        hp: pokemon.data.stats[0].base_stat,
+        attack: pokemon.data.stats[1].base_stat,
+        defense: pokemon.data.stats[2].base_stat,
+        speed: pokemon.data.stats[5].base_stat,
+        type: pokemon.data.types.map((data) => data.type.name),
+      };
+    });
+    
+    let pokemonsDb = await getDB();
+    
+    let pokemonsApiDb = pokemonsDb.concat(pokemons);
+    res.status(200).send(pokemonsApiDb);
+  } catch (error) {
+    next(error);
+  }
+});
+
+//FUNCION ASINCRONA PARA TRAER LOS POKEMONS DE DB Y CONCATENARLOS A LOS TRAIDOS DESDE API
+const getDB = async () => {
+  let pokemonsDataBase = await Pokemon.findAll({
+    include: {
+      model: Type,
+      attributes: ["name"],
+      
+      through: {
+        attributes: [],
+      },
+    },
+  });
+
+  pokemonsDataBase = pokemonsDataBase.map(
+    ({
+      id,
+      name,
+      hp,
+      attack,
+      defense,
+      speed,
+      weight,
+      height,
+      image,
+      types,
+      createdInDb,
+    }) => ({
+      id,
+      name,
+      hp,
+      attack,
+      defense,
+      speed,
+      weight,
+      height,
+      image,
+      type: types.map((t) => t.name),
+      createdInDb,
+    })
+  );
+  return pokemonsDataBase;
+};
 
 // RUTA PARA BUSQUEDA API NAME Y DB NAME       
-router.get("/name", async (req, res, next) => {
+router.get("/name", async (req, res,) => {
   let { name } = req.query;
   try {
     if (name) {
@@ -72,124 +156,6 @@ router.get("/name", async (req, res, next) => {
   }
 });
             
-//FUNCION ASINCRONA PARA TRAER LOS POKEMONS DE DB Y CONCATENARLOS A LOS TRAIDOS DESDE API
-const getDB = async () => {
-  let pokemonsDataBase = await Pokemon.findAll({
-    include: {
-      model: Type,
-      attributes: ["name"],
-
-      through: {
-        attributes: [],
-      },
-    },
-  });
-
-  pokemonsDataBase = pokemonsDataBase.map(
-    ({
-      id,
-      name,
-      hp,
-      attack,
-      defense,
-      speed,
-      weight,
-      height,
-      image,
-      types,
-      createdInDb,
-    }) => ({
-      id,
-      name,
-      hp,
-      attack,
-      defense,
-      speed,
-      weight,
-      height,
-      image,
-      type: types.map((t) => t.name),
-      createdInDb,
-    })
-  );
-  return pokemonsDataBase;
-};
-
-//RUTA PARA TRAER TODOS LOS POKEMONS, TANTO POR API Y COMO ASI TAMBIEN SI HUBIERA UNO CREADO EN LA DB
-router.get("/", async (req, res, next) => {
-  const dataApi = [];
-
-  try {
-    const api = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
-    api.data.results.forEach((data) => dataApi.push(data.url));
-    const api20 = api.data.next;
-    const subApi = await axios.get(api20);
-   subApi.data.results.forEach((data) => dataApi.push(data.url));
-    
-    let dataPokemons = [];
-    dataApi.forEach((data) => {
-      let promesa = axios.get(data);
-      dataPokemons.push(promesa);
-    });
-    let promiseDataPokemons = await Promise.all(dataPokemons);
-
-    const pokemons = promiseDataPokemons.map((pokemon) => {
-      return {
-        id: pokemon.data.id,
-        name: pokemon.data.name,
-        weight: pokemon.data.weight,
-        height: pokemon.data.height,
-        image: pokemon.data.sprites.other.dream_world.front_default,
-        hp: pokemon.data.stats[0].base_stat,
-        attack: pokemon.data.stats[1].base_stat,
-        defense: pokemon.data.stats[2].base_stat,
-        speed: pokemon.data.stats[5].base_stat,
-        type: pokemon.data.types.map((data) => data.type.name),
-      };
-    });
-
-    let pokemonsDb = await getDB();
-
-    let pokemonsApiDb = pokemonsDb.concat(pokemons);
-    res.status(200).send(pokemonsApiDb);
-  } catch (error) {
-    next(error);
-  }
-});
-
-  // try {
-  //     let dataPokemon = []
-  //     let api = (await axios.get(`https://pokeapi.co/api/v2/pokemon`)).data
-  //     let api20= (await axios.get(api.next)).data
-  //     let api40= [...api.results,...api20.results]
-  //     const getDataPokemon = async (i) => {
-  //         let pokemonData = await axios.get(api40[i].url);
-  //         let pokemon = {
-  //             id: pokemonData.data.id,
-  //             name: pokemonData.data.name,
-  //             hp: pokemonData.data.stats[0].base_stat,
-  //             attack: pokemonData.data.stats[1].base_stat,
-  //             defense: pokemonData.data.stats[2].base_stat,
-  //             speed: pokemonData.data.stats[5].base_stat,
-  //             height: pokemonData.data.height,
-  //             weight: pokemonData.data.weight,
-  //             image: pokemonData.data.sprites.other.dream_world.front_default,
-  //             type: pokemonData.data.types[0].type.name
-
-  //         }
-  //         dataPokemon.push(pokemon)
-  //     }
-  //      for(let i = 0; i < api40.length; i++) {
-  //         await getDataPokemon(i);
-  //     }
-  //  let pokemonsDb = await getDB();
-  //  let pokemonsApiDb = pokemonsDb.concat(dataPokemon)
-  // res.status(200).send(pokemonsApiDb)
-
-  // }
-  // catch(error) {
-  //     next(error);
-  //   }
 
 //RUTA PARA BUSCAR POR ID TANTO EN DB COMO EN API
 router.get("/:id", async (req, res, next) => {
@@ -275,5 +241,29 @@ router.post("/newpokemon", async (req, res, next) => {
     next(error);
   }
 });
+
+////////////////////////////////////////////////////
+//////////PRACTICE DELETE///////////////////
+
+// router.delete(':id', (req, res, next) => {
+//   const id = req.params.id;
+//   return Pokemon.destroy({
+//     where: 
+//       {id }
+    
+//   }).then(() => {res.status(200).send('Pokemon successfully eliminated')})
+//   .catch(error => next(error))
+// })
+
+
+////////////////////////////////////////////////////
+
+// router.delete('/:id', (req, res, next) => {
+//   const id = req.params.id;
+//   return Pokemon.destroy({
+//     where: {id}
+//   }).then(() => {res.status(200).send('Pokemon eliminado correctamente')})
+//   .catch(error => next(error))
+// })
 
 module.exports = router;

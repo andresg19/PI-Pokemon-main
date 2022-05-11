@@ -24,11 +24,11 @@
 
 .btn{
     
-        box-shadow: 3px 3px 19px 3px #ffffff;
-        background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
-        background-color:#74ad5a;
+        box-shadow: 3px 3px 19px 3px #ffffff44;
+        background:linear-gradient(to bottom, #00bd4fb7 5%, #00bd4f59 100%);
+        background-color: #00bd5e1f;
         border-radius:5px;
-        border:2px solid #3b6e22;
+        border:2px solid #00bd5e1c;
         display:inline-block;
         cursor:pointer;
         color:#ffffff;
@@ -40,8 +40,8 @@
     }
     
 .btn:hover{
-    background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
-	background-color:#68a54b;
+    background:linear-gradient(to bottom, #00bdbd21 5%, #00bdbd00 100%);
+	background-color:#00bdbd00;
 }
 .btn:active{
     position:relative;

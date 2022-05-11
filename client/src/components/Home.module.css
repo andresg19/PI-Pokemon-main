@@ -42,7 +42,7 @@
     padding-top: 1px;
     padding-right: 60px;
     bottom: 10px;
-    right: 220px;
+    left: 50px;
 
 }
 .box select {
@@ -72,11 +72,20 @@
     padding: 30px;
   }
 
-.positionBtn{
-    float: left;
+.positionNew{
+    position: relative;
     padding-top: 1px;
     padding-left: 100px;
+    top: 35px
     
+}
+.positionReload{
+  position: relative;
+  float: right;
+  padding-top: 1px;
+  padding-left: 100px;
+  right:120px ;
+  
 }
 
 .btn {
@@ -92,8 +101,6 @@
 	font-size:15px;
 	font-style:italic;
 	padding:7px 35px;
-	text-decoration:none;
-	text-shadow:3px 2px 0px #ffffff21;
   position: relative;
   bottom: 75px;
     
@@ -102,8 +109,8 @@
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;
 }
-.btn:active {
+/* .btn:active {
 	position:relative;
 	top:1px;
-}
+} */
 

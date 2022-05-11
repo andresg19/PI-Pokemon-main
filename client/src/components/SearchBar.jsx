@@ -14,7 +14,8 @@ export default function SearchBar() {
   }
   function handleButton(e) {
     e.preventDefault();
-    dispatch(searchName(name));
+    const searchPokemon  = searchName(name)
+    dispatch(searchPokemon)
     setName('')
   }
   return (
@@ -23,6 +24,8 @@ export default function SearchBar() {
       <input className={styles.searchInput}
         type="text"
         placeholder="Search pokemon..."
+        value={name}
+        autoComplete="off"
         onChange={(e) => handleInput(e)}
       />
       <button className={styles.btn} type="submit" onClick={(e) => handleButton(e)}>
