@@ -1,14 +1,14 @@
 .container {
-    background-image: url('https://images3.alphacoders.com/182/thumb-1920-182719.jpg');
-    background-size:cover; 
-    height: 1000px;
-    width: auto; 
+    background-image: url('https://wallpaperaccess.com/full/2797216.jpg');
+    max-height: auto;
+    max-width: auto;  
+    height: 160vh;
 }
 
 .cards{
     -webkit-box-shadow: 5px 5px 5px 0px #64d4e7, inset 4px 4px 15px 0px #0139f3, 10px -2px 15px 12px rgba(36, 85, 131, 0.452); 
-    box-shadow: 5px 5px 5px 0px #234b8067, inset 4px 4px 15px 0px #38298a4d, 10px -2px 15px 12px rgba(24, 29, 95, 0.27);
-    background-color: rgba(22, 89, 109, 0.425);
+    box-shadow: 5px 5px 5px 0px #234b801e, inset 4px 4px 15px 0px #38298a13, 10px -2px 15px 12px rgba(24, 29, 95, 0.089);
+    background-color: rgba(22, 89, 109, 0.185);
     width: 800px;
     height: 500px;
     justify-content:space-between;
@@ -149,7 +149,7 @@
 
 
 .btn{
-	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	box-shadow: 2px 2px 30px 2px #bbdaf728;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
 	background-color:#11396173;
 	border-radius:3px;

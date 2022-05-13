@@ -242,28 +242,14 @@ router.post("/newpokemon", async (req, res, next) => {
   }
 });
 
-////////////////////////////////////////////////////
-//////////PRACTICE DELETE///////////////////
-
-// router.delete(':id', (req, res, next) => {
-//   const id = req.params.id;
-//   return Pokemon.destroy({
-//     where: 
-//       {id }
-    
-//   }).then(() => {res.status(200).send('Pokemon successfully eliminated')})
-//   .catch(error => next(error))
-// })
-
-
-////////////////////////////////////////////////////
-
-// router.delete('/:id', (req, res, next) => {
+//DELETE para eliminar pokemon desde DB.
+// router.delete('/:id', async(req, res, next) => {
 //   const id = req.params.id;
 //   return Pokemon.destroy({
 //     where: {id}
-//   }).then(() => {res.status(200).send('Pokemon eliminado correctamente')})
+//   }).then(() => {res.status(200).send('Pokemon eliminado con exito')})
 //   .catch(error => next(error))
 // })
+
 
 module.exports = router;

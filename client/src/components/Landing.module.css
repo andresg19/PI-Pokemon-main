@@ -1,6 +1,6 @@
 .container{
     background-image: 
-               url('https://wallpaperaccess.com/full/3062895.jpg');
+               url('https://free4kwallpapers.com/uploads/originals/2015/07/25/pokemon-wallpaper-1920x1080.png');
     
     background-size: cover;    height: 100vh;      
 }
@@ -12,12 +12,12 @@
     word-spacing: -0.2px;
     color: #0000008e;
     font-weight: 700;
-    text-decoration: underline solid rgba(0, 69, 219, 0.089);
+    text-decoration: underline solid rgba(0, 69, 219, 0);
     font-style: normal;
     font-variant: normal;
     text-transform: capitalize;
     /* margin-top: 200px; */
-    text-shadow: 3px -3px 11px rgba(121, 159, 218, 0.81);
+    text-shadow: 3px -3px 11px rgba(121, 160, 218, 0.116);
     padding-top: 200px ;
     
 }
@@ -25,10 +25,10 @@
 .btn{
     
         box-shadow: 3px 3px 19px 3px #ffffff44;
-        background:linear-gradient(to bottom, #00bd4fb7 5%, #00bd4f59 100%);
-        background-color: #00bd5e1f;
+        background:linear-gradient(to bottom, #000000 5%, #00bd4f00 100%);
+        background-color: #0000006c;
         border-radius:5px;
-        border:2px solid #00bd5e1c;
+        border:2px solid #83838333;
         display:inline-block;
         cursor:pointer;
         color:#ffffff;
@@ -37,6 +37,8 @@
         font-weight:bold;
         padding:9px 19px;
         text-decoration:none;
+        display: inline-block;
+        margin-top: 150px;
     }
     
 .btn:hover{

@@ -1,13 +1,14 @@
 .container {
-    background-image: url('https://images3.alphacoders.com/182/thumb-1920-182719.jpg');
-    background-size:cover; 
-    height: 170vh;  
+    background-image: url('https://wallpaperaccess.com/full/2797216.jpg');
+    max-height: auto;
+    max-width: auto;  
+    height: 180vh;
 }
 .danger {
     border: 1px red solid;
 }
 .btnh {
-	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	box-shadow: 2px 2px 30px 2px #bbdaf750;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
 	background-color:#113961a8;
 	border-radius:3px;
@@ -32,7 +33,7 @@
 
 
 .btn {
-	box-shadow: 2px 2px 30px 2px #bbdaf75e;
+	box-shadow: 2px 2px 30px 2px #bbdaf73d;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
 	background-color:#113961e3;
 	border-radius:3px;
@@ -129,7 +130,7 @@ input[type=text] {
 	border:2px solid #11396150;
     width: 600px;
     height: 150px;
-    box-shadow: 2px 2px 30px 2px #bbdaf746;
+    box-shadow: 2px 2px 30px 2px #bbdaf71a;
     outline: none;
     display: inline-block;
     justify-content:space-between;

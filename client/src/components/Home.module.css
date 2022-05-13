@@ -1,8 +1,8 @@
 .container {
-    background-image: url('https://images3.alphacoders.com/182/thumb-1920-182719.jpg');
-    background-size:cover; 
-    height: 230vh;
-   
+    background-image: url('https://wallpaperaccess.com/full/2797216.jpg');
+    max-height: auto;
+    max-width: auto;  
+    height: 280vh;
 }
  
  .cards{
@@ -22,14 +22,14 @@
     word-spacing: -0.2px;
     color: #000000b4;
     font-weight: 700;
-    text-decoration: underline solid rgba(0, 69, 219, 0.089);
+    text-decoration: underline solid rgba(0, 69, 219, 0);
     font-style: normal;
     font-variant: normal;
     text-transform: capitalize;
     display: inline-block;
     justify-content: center;
     padding-left: 180px;
-    text-shadow: 3px -3px 11px rgba(255, 255, 255, 0.596);
+    text-shadow: 3px -3px 11px rgba(255, 255, 255, 0);
     position: relative;
     right: 100px;
     
@@ -43,7 +43,7 @@
     padding-right: 60px;
     bottom: 10px;
     left: 50px;
-
+    
 }
 .box select {
   background-color:#11396173;
@@ -55,7 +55,7 @@
     font-family:Times New Roman;
 	font-size:15px;
 	font-style:italic;
-    box-shadow: 2px 2px 30px 2px #bbdaf7;
+    box-shadow: 2px 2px 30px 2px #bbdaf741;
     -webkit-appearance: button;
     appearance: button;
     outline: none;
@@ -89,7 +89,7 @@
 }
 
 .btn {
-	box-shadow: 2px 2px 30px 2px #bbdaf7;
+	box-shadow: 2px 2px 30px 2px #bbdaf728;
 	background:linear-gradient(to bottom, #79bcff3a 5%, #378ee585 100%);
 	background-color:#11396173;
 	border-radius:3px;
@@ -106,8 +106,8 @@
     
 }
 .btn:hover {
-	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
+	background:linear-gradient(to bottom, #11396173 5%, #11396173 100%);
+	background-color:#11396173;
 }
 /* .btn:active {
 	position:relative;

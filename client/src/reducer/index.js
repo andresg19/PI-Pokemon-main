@@ -13,7 +13,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         pokemons: action.payload,
         copyPokemons: action.payload,
-        //copyPokemonsTwo: action.payload
+        
       };
     case "SEARCH_NAME":
       return {

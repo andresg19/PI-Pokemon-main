@@ -72,7 +72,7 @@ export function validate(input) {
   if(input.type.length < 1)  {
       errors.type = 'Insert at least one type'
   } else if(input.type.length >= 3) {
-    errors.type = 'Solo puede seleccionar hasta 2 tipos'
+    errors.type = 'You can only choose up to 2 types'
   }
   
  
